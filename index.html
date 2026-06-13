@@ -14,8 +14,11 @@
     <!-- Lucide Icon Library -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
-    <!-- Custom Style Sheet (traces and builds Tailwind CSS v4) -->
-    <link rel="stylesheet" href="/style.css" />
+    <!-- Tailwind Play CDN (Enables on-the-fly compilation of utility classes for frictionless direct static and GitHub Pages hosting) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Style Sheet (relative path to support GitHub Pages sub-directories) -->
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body class="bg-white text-slate-700 antialiased font-sans">
 
@@ -1500,7 +1503,7 @@
       </div>
     </footer>
 
-    <!-- Master controller file -->
-    <script src="/script.js"></script>
+    <!-- Master controller file (relative path to support sub-folders on GitHub Pages) -->
+    <script src="script.js"></script>
   </body>
 </html>
