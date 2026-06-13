@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+/* Theme overrides and custom typography standard */
+@theme {
+  --font-sans: "Inter", "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --color-medical-blue: #0E7490; /* Soft Cyan/Dark teal blue */
+  --color-premium-navy: #0F172A; /* Deep slate slate-900 */
+}
+
+:root {
+  --font-primary: 'Inter', sans-serif;
+  --font-display: 'Poppins', sans-serif;
+  --color-primary: #0284c7; /* Sky 600 */
+  --color-primary-dark: #0369a1; /* Sky 700 */
+  --color-primary-light: #e0f2fe; /* Sky 100 */
+  --color-accent: #0f766e; /* Cyan 700 */
+  --color-navy: #0f172a; /* Slate 900 */
+  --color-light: #f8fafc; /* Slate 50 */
+  --color-glass: rgba(255, 255, 255, 0.75);
+  --color-border: rgba(226, 232, 240, 0.8);
+  --shadow-premium: 0 10px 30px -5px rgba(2, 132, 199, 0.08), 0 4px 6px -2px rgba(2, 132, 199, 0.03);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+}
+
+/* Smooth Scrolling & Basic Setup */
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-primary);
+  background-color: #ffffff;
+  color: #334155;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
+
+/* Scroll Progress Bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0284c7, #06b6d4);
+  z-index: 1000;
+  width: 0%;
+  transition: width 0.1s ease-out;
+}
+
+/* Glassmorphism Navbar Utilities */
+.navbar-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: var(--shadow-glass);
+}
+
+/* Section transitions and entry animations */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom styles for Hero background elements */
+.hero-bg-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+  animation: floatCircle 15s infinite alternate ease-in-out;
+}
+
+@keyframes floatCircle {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  100% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+/* Custom interactive Micro-animations & Card Hovers */
+.premium-card {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(241, 245, 249, 1);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+}
+
+.premium-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-premium);
+  border-color: rgba(186, 230, 253, 0.8);
+}
+
+/* Doctor card specific hover design */
+.doctor-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.doctor-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.4) 60%, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.doctor-card:hover .doctor-overlay {
+  opacity: 1;
+}
+
+/* General Link underline effect */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-primary);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active-nav::after {
+  width: 100%;
+}
+
+/* Accordion Accordion Items */
+.faq-trigger[aria-expanded="true"] .icon-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+
+.faq-content.open {
+  max-height: 500px;
+  opacity: 1;
+}
+
+/* Floating Actions styling */
+.floating-action {
+  position: fixed;
+  right: 24px;
+  z-index: 90;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.floating-whatsapp {
+  bottom: 96px;
+}
+
+.floating-appointment {
+  bottom: 24px;
+}
+
+.floating-top {
+  bottom: 168px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.floating-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Form inputs premium outline transitions */
+.form-input-premium {
+  border: 1px solid #cbd5e1;
+  transition: all 0.3s ease;
+}
+
+.form-input-premium:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
+  outline: none;
+}
+
+/* Testimonial slider setup */
+.testimonial-slide {
+  display: none;
+}
+
+.testimonial-slide.active {
+  display: block;
+  animation: slideFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Preloader styling */
+#loading-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #ffffff;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+#loading-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Dot Wave loader */
+.dot-wave {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot-wave__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  animation: jump 1.2s infinite ease-in-out;
+}
+
+.dot-wave__dot:nth-child(2) {
+  animation-delay: 0.15s;
+  background-color: #06b6d4;
+}
+
+.dot-wave__dot:nth-child(3) {
+  animation-delay: 0.3s;
+  background-color: #0d9488;
+}
+
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Custom WhatsApp Box triggerable popup */
+.whatsapp-chat-box {
+  position: fixed;
+  bottom: 160px;
+  right: 24px;
+  width: 320px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.15), 0 10px 16px -5px rgba(15, 23, 42, 0.05);
+  z-index: 95;
+  transform: translateY(30px) scale(0.95);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  border: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.whatsapp-chat-box.show {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.whatsapp-chat-header {
+  background: linear-gradient(135deg, #128c7e, #075e54);
+}
+
+/* Pulsing bullet indicator */
+.pulse-indicator {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+}
+
+.pulse-indicator::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #10b981;
+  border-radius: 50%;
+  animation: pulse-ring 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Universal Button Styles */
+.btn-premium {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-premium::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease-out;
+}
+
+.btn-premium:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Success Modal styling */
+#success-modal {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* For users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .fade-in-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .hero-bg-circle {
+    animation: none;
+  }
+  .premium-card:hover {
+    transform: none;
+  }
+  .floating-action {
+    transition: none;
+  }
+}

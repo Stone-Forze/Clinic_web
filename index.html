@@ -1,0 +1,1506 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Advanced Healthcare With Compassionate Care. Book your specialist consultation at our premium modern medical center." />
+    <title>Your Brand Name | Premium Modern Healthcare Clinic</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    
+    <!-- Lucide Icon Library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Style Sheet (traces and builds Tailwind CSS v4) -->
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body class="bg-white text-slate-700 antialiased font-sans">
+
+    <!-- --- PRELOADER --- -->
+    <div id="loading-overlay">
+      <div class="flex flex-col items-center gap-4">
+        <div class="flex items-center gap-2 text-sky-600 font-display font-bold text-2xl tracking-tight">
+          <i data-lucide="heart-pulse" class="w-8 h-8 text-sky-600 animate-pulse"></i>
+          <span>Your Brand<span class="text-sky-500 font-normal">Care</span></span>
+        </div>
+        <div class="dot-wave mt-2">
+          <div class="dot-wave__dot"></div>
+          <div class="dot-wave__dot"></div>
+          <div class="dot-wave__dot"></div>
+        </div>
+        <p class="text-slate-400 text-xs tracking-wider uppercase font-medium mt-1">Preparing Premium Clinical Experience</p>
+      </div>
+    </div>
+
+    <!-- --- SCROLL PROGRESS BAR --- -->
+    <div id="scroll-progress" aria-hidden="true"></div>
+
+    <!-- --- FLOATING FLOATING ACTIONS --- -->
+    <!-- Back to top -->
+    <a href="#home" id="back-to-top" class="floating-action floating-top bg-sky-600 hover:bg-sky-700 text-white p-3.5 rounded-full shadow-lg hover:shadow-sky-200 hover:-translate-y-1 transform transition" aria-label="Scroll back to top">
+      <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </a>
+
+    <!-- Floating Appointment Shortcut -->
+    <a href="#appointment" class="floating-action floating-appointment bg-sky-600 hover:bg-sky-700 text-white px-5 py-3 rounded-full shadow-xl hover:shadow-sky-200 flex items-center gap-2 font-medium tracking-wide text-sm hover:-translate-y-1 transform transition" aria-label="Book appointment quick link">
+      <i data-lucide="calendar" class="w-4 h-4"></i>
+      <span>Book Appointment</span>
+    </a>
+
+    <!-- Floating WhatsApp Widget Button -->
+    <button id="whatsapp-toggle" class="floating-action floating-whatsapp bg-emerald-500 hover:bg-emerald-600 text-white p-4 rounded-full shadow-xl hover:shadow-emerald-200 hover:-translate-y-1 transform transition flex items-center justify-center cursor-pointer" aria-label="Contact clinic via WhatsApp">
+      <i data-lucide="message-square" class="w-6 h-6"></i>
+      <span class="absolute top-0 right-0 w-3.5 h-3.5 bg-rose-500 border-2 border-white rounded-full animate-bounce"></span>
+    </button>
+
+    <!-- Floating WhatsApp Conversation Container -->
+    <div id="whatsapp-chat-box" class="whatsapp-chat-box shadow-2xl font-sans" aria-live="polite">
+      <div class="whatsapp-chat-header p-4 text-white flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center font-bold text-sm">
+              <i data-lucide="stethoscope" class="w-5 h-5 text-white"></i>
+            </div>
+            <div class="pulse-indicator absolute bottom-0 right-0"></div>
+          </div>
+          <div>
+            <h4 class="font-semibold text-sm">Clinical Assistant</h4>
+            <p class="text-xs text-white/80">Online & ready to help</p>
+          </div>
+        </div>
+        <button id="whatsapp-close" class="text-white/80 hover:text-white transition cursor-pointer" aria-label="Close query box">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="p-4 bg-slate-50 space-y-3">
+        <p class="bg-white p-3 rounded-lg rounded-tl-none shadow-sm text-xs text-slate-600 leading-relaxed">
+          Hello! 👋 Thank you for visiting Your Brand Clinic. How can we support your wellness today? Ask me about departments, general consulting hours, or our medical experts!
+        </p>
+        <div class="space-y-1.5 pt-1">
+          <button class="whatsapp-preset w-full text-left bg-white hover:bg-sky-50 text-slate-700 text-xs py-2 px-3 border border-slate-200 rounded-lg transition" data-text="What are your consultation timings?">
+            What are your consultation timings?
+          </button>
+          <button class="whatsapp-preset w-full text-left bg-white hover:bg-sky-50 text-slate-700 text-xs py-2 px-3 border border-slate-200 rounded-lg transition" data-text="Do you accept clinical insurance packages?">
+            Do you accept medical insurance?
+          </button>
+        </div>
+      </div>
+      <div class="p-3 border-t border-slate-150 bg-white flex items-center gap-2">
+        <input id="whatsapp-message-input" type="text" placeholder="Type your inquiry..." class="flex-grow bg-slate-100 border-none rounded-full px-4 py-2 text-xs focus:ring-1 focus:ring-emerald-500 focus:outline-none" />
+        <button id="whatsapp-send-btn" class="bg-emerald-500 hover:bg-emerald-600 text-white p-2 rounded-full transition" aria-label="Send clinical inquiry WhatsApp message">
+          <i data-lucide="send" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+
+
+    <!-- --- 1. PREMIUM HEADER / NAVIGATION --- -->
+    <header id="header-navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-5 navbar-glass">
+      <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-2.5 text-slate-900 focus:outline-none">
+          <div class="w-10 h-10 bg-sky-600 rounded-xl flex items-center justify-center shadow-md shadow-sky-200">
+            <i data-lucide="heart-pulse" class="w-6 h-6 text-white"></i>
+          </div>
+          <span class="font-display font-extrabold text-xl tracking-tight">Your Brand<span class="text-sky-600 font-medium">Care</span></span>
+        </a>
+
+        <!-- Desktop Navigation Items -->
+        <nav class="hidden lg:flex items-center gap-8 font-medium text-slate-600 text-sm">
+          <a href="#home" class="nav-link active-nav py-1 hover:text-sky-600 transition">Home</a>
+          <a href="#about" class="nav-link py-1 hover:text-sky-600 transition">About</a>
+          <a href="#services" class="nav-link py-1 hover:text-sky-600 transition">Services</a>
+          <a href="#why-choose-us" class="nav-link py-1 hover:text-sky-600 transition">Why Choose Us</a>
+          <a href="#doctors" class="nav-link py-1 hover:text-sky-600 transition">Doctors</a>
+          <a href="#testimonials" class="nav-link py-1 hover:text-sky-600 transition">Testimonials</a>
+          <a href="#contact" class="nav-link py-1 hover:text-sky-600 transition">Contact</a>
+        </nav>
+
+        <!-- Desktop Action CTA -->
+        <div class="hidden lg:flex items-center gap-4">
+          <a href="tel:00000000000" class="flex items-center gap-2 text-slate-700 bg-slate-100 hover:bg-slate-200 px-4 py-2.5 rounded-lg text-xs font-semibold tracking-wide transition">
+            <i data-lucide="phone" class="w-4 h-4 text-sky-600"></i>
+            <span>00000000000</span>
+          </a>
+          <a href="#appointment" class="btn-premium bg-sky-600 hover:bg-sky-700 text-white px-6 py-2.5 rounded-xl text-xs font-semibold tracking-wider uppercase shadow-md hover:shadow-sky-200 transition">
+            Book Appointment
+          </a>
+        </div>
+
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-menu-btn" class="lg:hidden text-slate-800 focus:outline-none cursor-pointer" aria-label="Toggle navigation drawer">
+          <i data-lucide="menu" class="w-7 h-7"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div id="mobile-nav-drawer" class="lg:hidden absolute top-full left-0 w-full bg-white border-b border-slate-100 shadow-xl max-h-0 opacity-0 overflow-hidden transition-all duration-300">
+        <nav class="flex flex-col px-6 pb-4 space-y-3 font-semibold text-slate-700">
+          <a href="#home" class="mobile-nav-link py-2 border-b border-slate-50 hover:text-sky-600">Home</a>
+          <a href="#about" class="mobile-nav-link py-2 border-b border-slate-50 hover:text-sky-600">About</a>
+          <a href="#services" class="mobile-nav-link py-2 border-b border-slate-50 hover:text-sky-600">Services</a>
+          <a href="#why-choose-us" class="mobile-nav-link py-2 border-b border-slate-50 hover:text-sky-600">Why Choose Us</a>
+          <a href="#doctors" class="mobile-nav-link py-2 border-b border-slate-50 hover:text-sky-600">Doctors</a>
+          <a href="#testimonials" class="mobile-nav-link py-2 border-b border-slate-50 hover:text-sky-600">Testimonials</a>
+          <a href="#contact" class="mobile-nav-link py-2 border-b border-slate-50 hover:text-sky-600">Contact</a>
+          <div class="pt-3 flex flex-col gap-2">
+            <a href="tel:00000000000" class="flex items-center justify-center gap-2 text-slate-700 bg-slate-50 py-3 rounded-lg text-sm">
+              <i data-lucide="phone" class="w-4 h-4 text-sky-600"></i>
+              <span>00000000000</span>
+            </a>
+            <a href="#appointment" class="bg-sky-600 hover:bg-sky-700 text-white text-center py-3 rounded-lg text-sm font-semibold uppercase tracking-wider">
+              Book Appointment
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+
+    <!-- --- 2. HERO SECTION --- -->
+    <section id="home" class="relative min-h-screen pt-28 pb-16 bg-gradient-to-tr from-slate-50 via-sky-50/20 to-teal-50/10 overflow-hidden flex items-center">
+      <!-- Ambient Animated background overlays -->
+      <div class="hero-bg-circle w-96 h-96 bg-sky-200/40 -top-16 -left-16"></div>
+      <div class="hero-bg-circle w-[450px] h-[450px] bg-teal-100/30 bottom-10 right-0"></div>
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Column 1: Captive value headings -->
+          <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+            
+            <!-- High Patient Rating badge -->
+            <div class="inline-flex items-center gap-2 bg-sky-50 border border-sky-100/80 px-4 py-1.5 rounded-full shadow-sm text-sky-800 text-xs font-semibold shrink-0">
+              <span class="flex items-center text-amber-500"><i data-lucide="star" class="w-4 h-4 fill-amber-500 stroke-amber-500"></i></span>
+              <span>4.9★ Rating with 99999+ Happy Patients</span>
+            </div>
+
+            <!-- Ultimate Clinical Heading -->
+            <h1 class="font-display font-extrabold text-4xl sm:text-5xl xl:text-6xl text-slate-900 leading-tight">
+              Advanced Healthcare <br />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-cyan-700">With Compassionate Care</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              Providing trusted medical services with experienced professionals, modern technology, and patient-focused treatment paths designed to enrich your well-being.
+            </p>
+
+            <!-- Buttons Interaction Grid -->
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <a href="#appointment" class="btn-premium w-full sm:w-auto bg-sky-600 hover:bg-sky-700 text-white font-semibold text-center px-8 py-4 rounded-xl shadow-lg hover:shadow-sky-100 transition whitespace-nowrap">
+                Book Appointment
+              </a>
+              <a href="#services" class="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-800 border border-slate-200 font-semibold text-center px-8 py-4 rounded-xl transition flex items-center justify-center gap-2">
+                <span>Explore Services</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+            <!-- Hero quick parameters indicators -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4 text-left max-w-lg md:max-w-full mx-auto">
+              <div class="flex items-start gap-2.5">
+                <div class="w-5 h-5 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                  <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3]"></i>
+                </div>
+                <div class="text-xs">
+                  <h4 class="font-bold text-slate-800">25+ Years</h4>
+                  <p class="text-slate-500">Clinical Legacy</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <div class="w-5 h-5 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                  <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3]"></i>
+                </div>
+                <div class="text-xs">
+                  <h4 class="font-bold text-slate-800">50+ Doctors</h4>
+                  <p class="text-slate-500">Specialist Experts</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <div class="w-5 h-5 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                  <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3]"></i>
+                </div>
+                <div class="text-xs">
+                  <h4 class="font-bold text-slate-800">Emergency 24/7</h4>
+                  <p class="text-slate-500">Always on Duty</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5">
+                <div class="w-5 h-5 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                  <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3]"></i>
+                </div>
+                <div class="text-xs">
+                  <h4 class="font-bold text-slate-800">FDA Approved</h4>
+                  <p class="text-slate-500">Accredited Lab</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Column 2: Modern responsive image grid layout with bento aesthetic -->
+          <div class="lg:col-span-5 relative mt-8 lg:mt-0">
+            <div class="relative max-w-md mx-auto">
+              <!-- Background glowing box -->
+              <div class="absolute -inset-1.5 bg-gradient-to-tr from-sky-400 to-teal-400 rounded-3xl blur opacity-30"></div>
+              
+              <!-- Core Premium Image -->
+              <div class="relative bg-white p-3.5 rounded-3xl overflow-hidden shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800" alt="State-of-the-art diagnostic clinic reception" class="w-full h-[380px] sm:h-[460px] object-cover rounded-2xl" referrerPolicy="no-referrer" />
+              </div>
+
+              <!-- Overlapping overlay indicator 1: Consultants online -->
+              <div class="absolute -left-6 bottom-16 bg-white border border-slate-100 p-3.5 rounded-2xl shadow-xl flex items-center gap-3.5 animate-bounce" style="animation-duration: 4s;">
+                <div class="w-10 h-10 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600">
+                  <i data-lucide="award" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-xs text-slate-900">Modern Technology</h4>
+                  <p class="text-[10px] text-slate-500">Precision Diagnostics</p>
+                </div>
+              </div>
+
+              <!-- Overlapping overlay indicator 2: Real-time bookings -->
+              <div class="absolute -right-6 top-12 bg-white border border-slate-100 p-4 rounded-2xl shadow-xl flex items-center gap-3">
+                <div class="flex -space-x-2">
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100" class="w-8 h-8 rounded-full border-2 border-white object-cover" alt="Patient 1" referrerPolicy="no-referrer" />
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100" class="w-8 h-8 rounded-full border-2 border-white object-cover" alt="Patient 2" referrerPolicy="no-referrer" />
+                  <div class="w-8 h-8 bg-sky-100 border-2 border-white text-sky-700 text-[10px] font-bold rounded-full flex items-center justify-center">+99k</div>
+                </div>
+                <div>
+                  <p class="text-[10px] text-slate-400 font-medium leading-none">Trusted by</p>
+                  <h4 class="font-bold text-xs text-slate-800">99,999+ Patients</h4>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- --- 3. TRUST INDICATORS --- -->
+    <section class="border-y border-slate-100 bg-white py-10">
+      <div class="max-w-7xl mx-auto px-6">
+        <p class="text-center text-slate-400 text-xs font-semibold tracking-widest uppercase mb-8">Recognized for Excellence in Medicine</p>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+          
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 p-4 border border-slate-50/50 rounded-xl hover:bg-slate-50/50 transition">
+            <div class="w-11 h-11 bg-sky-50 rounded-full flex items-center justify-center text-sky-600 shrink-0">
+              <i data-lucide="users" class="w-5 h-5"></i>
+            </div>
+            <div class="text-left">
+              <h4 class="font-display font-bold text-slate-900 leading-tight">99,999+</h4>
+              <p class="text-xs text-slate-500">Happy Patients</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 p-4 border border-slate-50/50 rounded-xl hover:bg-slate-50/50 transition">
+            <div class="w-11 h-11 bg-teal-50 rounded-full flex items-center justify-center text-teal-600 shrink-0">
+              <i data-lucide="star" class="w-5 h-5 fill-teal-600 stroke-teal-600"></i>
+            </div>
+            <div class="text-left">
+              <h4 class="font-display font-bold text-slate-900 leading-tight">4.9 Overall</h4>
+              <p class="text-xs text-slate-500">Highly Rated Studies</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 p-4 border border-slate-50/50 rounded-xl hover:bg-slate-50/50 transition">
+            <div class="w-11 h-11 bg-cyan-50 rounded-full flex items-center justify-center text-cyan-600 shrink-0">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+            <div class="text-left">
+              <h4 class="font-display font-bold text-slate-900 leading-tight">50+ Experts</h4>
+              <p class="text-xs text-slate-500">Board-Certified Team</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 p-4 border border-slate-50/50 rounded-xl hover:bg-slate-50/50 transition">
+            <div class="w-11 h-11 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 shrink-0">
+              <i data-lucide="microscope" class="w-5 h-5"></i>
+            </div>
+            <div class="text-left">
+              <h4 class="font-display font-bold text-slate-900 leading-tight">Advanced</h4>
+              <p class="text-xs text-slate-500">Accredited Equipment</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- --- 4. ABOUT CLINIC --- -->
+    <section id="about" class="py-24 bg-slate-50/40 fade-in-section">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-12 gap-16 items-center">
+          
+          <!-- Staggered Image Section -->
+          <div class="lg:col-span-5 relative">
+            <div class="grid grid-cols-12 gap-4">
+              <!-- Dr Image top -->
+              <div class="col-span-8 relative">
+                <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80&w=600" alt="Scientific collaborative medical teamwork" class="w-full h-80 object-cover rounded-2xl shadow-lg border-4 border-white" referrerPolicy="no-referrer" />
+              </div>
+              <!-- Tooling Image bottom -->
+              <div class="col-span-7 col-start-5 -mt-24 relative z-10">
+                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=600" alt="Elite modern diagnostic specialist scanning interface" class="w-full h-64 object-cover rounded-2xl shadow-xl border-4 border-white" referrerPolicy="no-referrer" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Description Section -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-block bg-sky-50 text-sky-700 text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-md">
+              About Our Medical Center
+            </div>
+            <h2 class="font-display font-black text-3xl sm:text-4xl text-slate-900 tracking-tight leading-tight">
+              An Elevated Level of Health Care & Medical Trust
+            </h2>
+            <p class="text-slate-600 leading-relaxed text-sm">
+              Your Brand Group is a pinnacle health ecosystem established to provide patients with premium private specialty support. Offering comprehensive treatment protocols encompassing basic checkups to specialized surgery pathways, we are persistent about delivering stellar, safe and clinical clinical values.
+            </p>
+
+            <!-- Mission, Vision, and Core values Grid -->
+            <div class="space-y-4 pt-2">
+              
+              <!-- Mission -->
+              <div class="flex gap-4 p-4 bg-white rounded-xl shadow-sm border border-slate-100 hover:border-sky-100 transition">
+                <div class="w-10 h-10 bg-sky-50 text-sky-600 rounded-lg flex items-center justify-center shrink-0">
+                  <i data-lucide="target" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-slate-900 text-sm">Our Mission</h3>
+                  <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                    To deliver evidence-based clinical practices and compassionate support, transforming community wellness standard.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Vision -->
+              <div class="flex gap-4 p-4 bg-white rounded-xl shadow-sm border border-slate-100 hover:border-sky-100 transition">
+                <div class="w-10 h-10 bg-teal-50 text-teal-600 rounded-lg flex items-center justify-center shrink-0">
+                  <i data-lucide="eye" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-slate-900 text-sm">Our Vision</h3>
+                  <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                    To set international benchmarks globally for pristine preventive diagnostic medicine and modern, patient-centered therapy.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Core values -->
+              <div class="flex gap-4 p-4 bg-white rounded-xl shadow-sm border border-slate-100 hover:border-sky-100 transition">
+                <div class="w-10 h-10 bg-cyan-50 text-cyan-600 rounded-lg flex items-center justify-center shrink-0">
+                  <i data-lucide="heart" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h3 class="font-bold text-slate-900 text-sm">Our Core Values</h3>
+                  <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+                    Integrity, absolute transparency, advanced training standards, clinical precision, and continuous learning are our guiding pillars.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- --- 5. MEDICAL SERVICES --- -->
+    <section id="services" class="py-24 bg-white fade-in-section">
+      <div class="max-w-7xl mx-auto px-6">
+        
+        <!-- Header Text -->
+        <div class="text-center space-y-4 max-w-2xl mx-auto mb-16">
+          <div class="inline-block bg-sky-50 text-sky-700 text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-md">
+            Clinical Services Overview
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+            Our Care Areas & Specialist Departments
+          </h2>
+          <p class="text-slate-500 text-sm leading-relaxed">
+            From essential routine checkups to intensive specialist consultation, we cover your complete physical wellness with specialized departments.
+          </p>
+        </div>
+
+        <!-- Department Cards Grid (8 Services) -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Card 1: General Consultation -->
+          <div class="premium-card bg-white p-6 rounded-2xl flex flex-col items-start h-full">
+            <div class="w-12 h-12 bg-sky-50 text-sky-600 rounded-xl flex items-center justify-center mb-5 shrink-0">
+              <i data-lucide="stethoscope" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 text-lg mb-2">General Consultation</h3>
+            <p class="text-slate-500 text-xs leading-relaxed mb-6 flex-grow">
+              Comprehensive clinical evaluation, vital diagnostic queries, and specialized symptom assessment directly centered on your comfort.
+            </p>
+            <a href="#appointment" class="group/link text-sky-600 hover:text-sky-700 font-semibold text-xs tracking-wider inline-flex items-center gap-1 mt-auto">
+              <span>Book Session</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 transform group-hover/link:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+
+          <!-- Card 2: Family Medicine -->
+          <div class="premium-card bg-white p-6 rounded-2xl flex flex-col items-start h-full">
+            <div class="w-12 h-12 bg-rose-50 text-rose-500 rounded-xl flex items-center justify-center mb-5 shrink-0">
+              <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 text-lg mb-2">Family Medicine</h3>
+            <p class="text-slate-500 text-xs leading-relaxed mb-6 flex-grow">
+              Dedicated and personalized family-first medical care spanning general pediatrics, wellness education, and elderly care pathways.
+            </p>
+            <a href="#appointment" class="group/link text-sky-600 hover:text-sky-700 font-semibold text-xs tracking-wider inline-flex items-center gap-1 mt-auto">
+              <span>Book Session</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 transform group-hover/link:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+
+          <!-- Card 3: Health Checkups -->
+          <div class="premium-card bg-white p-6 rounded-2xl flex flex-col items-start h-full">
+            <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-5 shrink-0">
+              <i data-lucide="activity" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 text-lg mb-2">Health Checkups</h3>
+            <p class="text-slate-500 text-xs leading-relaxed mb-6 flex-grow">
+              Specialized screening audits and metabolic check panels built proactively to maintain healthy physical baselines and lifestyles.
+            </p>
+            <a href="#appointment" class="group/link text-sky-600 hover:text-sky-700 font-semibold text-xs tracking-wider inline-flex items-center gap-1 mt-auto">
+              <span>Book Session</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 transform group-hover/link:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+
+          <!-- Card 4: Diagnostic Services -->
+          <div class="premium-card bg-white p-6 rounded-2xl flex flex-col items-start h-full">
+            <div class="w-12 h-12 bg-violet-50 text-violet-600 rounded-xl flex items-center justify-center mb-5 shrink-0">
+              <i data-lucide="file-audio" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 text-lg mb-2">Diagnostic Services</h3>
+            <p class="text-slate-500 text-xs leading-relaxed mb-6 flex-grow">
+              Laboratory studies, precise blood test profiles, ultrasounds, and rapid modern imaging reports handled by skilled scientists.
+            </p>
+            <a href="#appointment" class="group/link text-sky-600 hover:text-sky-700 font-semibold text-xs tracking-wider inline-flex items-center gap-1 mt-auto">
+              <span>Book Session</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 transform group-hover/link:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+
+          <!-- Card 5: Vaccination -->
+          <div class="premium-card bg-white p-6 rounded-2xl flex flex-col items-start h-full">
+            <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center mb-5 shrink-0">
+              <i data-lucide="syringe" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 text-lg mb-2">Vaccination</h3>
+            <p class="text-slate-500 text-xs leading-relaxed mb-6 flex-grow">
+              Immunization sessions, seasonal flu defenses, and standard childhood pediatric vaccine requirements managed safely.
+            </p>
+            <a href="#appointment" class="group/link text-sky-600 hover:text-sky-700 font-semibold text-xs tracking-wider inline-flex items-center gap-1 mt-auto">
+              <span>Book Session</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 transform group-hover/link:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+
+          <!-- Card 6: Emergency Care -->
+          <div class="premium-card bg-white p-6 rounded-2xl flex flex-col items-start h-full">
+            <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center mb-5 shrink-0 animate-pulse">
+              <i data-lucide="shield-alert" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 text-lg mb-2">Emergency Care</h3>
+            <p class="text-slate-500 text-xs leading-relaxed mb-6 flex-grow">
+              Rapid response acute trauma intervention, direct ambulances support, and certified continuous surgical units standby.
+            </p>
+            <a href="#appointment" class="group/link text-sky-600 hover:text-sky-700 font-semibold text-xs tracking-wider inline-flex items-center gap-1 mt-auto">
+              <span>Book Session</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 transform group-hover/link:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+
+          <!-- Card 7: Specialist Consultation -->
+          <div class="premium-card bg-white p-6 rounded-2xl flex flex-col items-start h-full">
+            <div class="w-12 h-12 bg-cyan-50 text-cyan-600 rounded-xl flex items-center justify-center mb-5 shrink-0">
+              <i data-lucide="award" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 text-lg mb-2">Specialist Consultation</h3>
+            <p class="text-slate-500 text-xs leading-relaxed mb-6 flex-grow">
+              Direct access links with board-certified clinical cardiologists, neurologists, internal specialists and pediatric experts.
+            </p>
+            <a href="#appointment" class="group/link text-sky-600 hover:text-sky-700 font-semibold text-xs tracking-wider inline-flex items-center gap-1 mt-auto">
+              <span>Book Session</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 transform group-hover/link:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+
+          <!-- Card 8: Preventive Healthcare -->
+          <div class="premium-card bg-white p-6 rounded-2xl flex flex-col items-start h-full">
+            <div class="w-12 h-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center mb-5 shrink-0">
+              <i data-lucide="shield" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display font-bold text-slate-900 text-lg mb-2">Preventive Healthcare</h3>
+            <p class="text-slate-500 text-xs leading-relaxed mb-6 flex-grow">
+              Holistic life modification models, nutritional dietary structures, and stress abatement programs built strictly to stop clinical risks.
+            </p>
+            <a href="#appointment" class="group/link text-sky-600 hover:text-sky-700 font-semibold text-xs tracking-wider inline-flex items-center gap-1 mt-auto">
+              <span>Book Session</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5 transform group-hover/link:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- --- 6. WHY CHOOSE US --- -->
+    <section id="why-choose-us" class="py-24 bg-slate-50/70 fade-in-section">
+      <div class="max-w-7xl mx-auto px-6">
+        
+        <!-- Header Text -->
+        <div class="text-center space-y-4 max-w-2xl mx-auto mb-16">
+          <div class="inline-block bg-sky-50 text-sky-700 text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-md">
+            Our Core Competency
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+            Comprehensive Benefits Crafted for Patient Care
+          </h2>
+          <p class="text-slate-500 text-sm leading-relaxed">
+            We focus extensively on optimizing waiting room sequences, hiring superior specialists, and sustaining advanced laboratories.
+          </p>
+        </div>
+
+        <!-- Advantage Bento Grid (6 Advantages) -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Benefit 1 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 bg-sky-50 text-sky-600 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="user-check" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-display font-bold text-slate-900 text-lg mb-2.5">Experienced Doctors</h4>
+            <p class="text-slate-500 text-xs leading-relaxed">
+              Every clinician on our roster carries board certifications and international training matrices, guaranteeing expert care.
+            </p>
+          </div>
+
+          <!-- Benefit 2 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="hospital" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-display font-bold text-slate-900 text-lg mb-2.5">Modern Facilities</h4>
+            <p class="text-slate-500 text-xs leading-relaxed">
+              From advanced laboratory systems to premium checkup suites, we incorporate state-of-the-art materials.
+            </p>
+          </div>
+
+          <!-- Benefit 3 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 bg-cyan-50 text-cyan-600 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="smile" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-display font-bold text-slate-900 text-lg mb-2.5">Patient-Centered Care</h4>
+            <p class="text-slate-500 text-xs leading-relaxed">
+              We structure custom healthcare paths, respect cultural conditions, and maintain extreme patient timeline flexibility.
+            </p>
+          </div>
+
+          <!-- Benefit 4 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="calendar" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-display font-bold text-slate-900 text-lg mb-2.5">Fast Booking Protocols</h4>
+            <p class="text-slate-500 text-xs leading-relaxed">
+              Secure priority bookings directly on our internet portal. Avoid exhausting phone queues and receive instant confirmation.
+            </p>
+          </div>
+
+          <!-- Benefit 5 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 bg-violet-50 text-violet-600 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="banknote" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-display font-bold text-slate-900 text-lg mb-2.5">Affordable Treatment</h4>
+            <p class="text-slate-500 text-xs leading-relaxed">
+              Honest transparent rates, seamless connection channels with leading health insurers, and structural budgeting paths.
+            </p>
+          </div>
+
+          <!-- Benefit 6 -->
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
+            <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center mb-6">
+              <i data-lucide="crown" class="w-6 h-6"></i>
+            </div>
+            <h4 class="font-display font-bold text-slate-900 text-lg mb-2.5">Trusted Healthcare</h4>
+            <p class="text-slate-500 text-xs leading-relaxed">
+              Consistently rated with the outstanding tier in patients comfort studies and strict regulatory health parameters.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- --- 7. DOCTORS SECTION --- -->
+    <section id="doctors" class="py-24 bg-white fade-in-section">
+      <div class="max-w-7xl mx-auto px-6">
+        
+        <!-- Header Text -->
+        <div class="text-center space-y-4 max-w-2xl mx-auto mb-16">
+          <div class="inline-block bg-sky-50 text-sky-700 text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-md">
+            Board-Certified Physicians
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+            Meet Our Exceptional Medical Specialists
+          </h2>
+          <p class="text-slate-500 text-sm leading-relaxed">
+            Our doctors combine clinical expert knowledge, continuous academic research, and warm bed-side manners.
+          </p>
+        </div>
+
+        <!-- 4 Doctor profiles -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Doctor 1: Dr. Adrian Sterling -->
+          <div class="doctor-card bg-slate-50 rounded-2xl shadow-sm border border-slate-100 overflow-hidden group">
+            <div class="relative overflow-hidden h-[300px]">
+              <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400" alt="Dr. Adrian Sterling - Cardiologist" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" referrerPolicy="no-referrer" />
+              <div class="doctor-overlay flex items-center justify-center gap-3">
+                <a href="#" class="w-9 h-9 bg-white hover:bg-sky-50 rounded-full flex items-center justify-center text-sky-600 shadow-md transition" aria-label="LinkedIn profile Link"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+                <a href="#" class="w-9 h-9 bg-white hover:bg-sky-50 rounded-full flex items-center justify-center text-sky-600 shadow-md transition" aria-label="Professional Twitter Link"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+              </div>
+            </div>
+            <div class="p-5 space-y-1 bg-white relative z-10">
+              <span class="text-sky-600 text-[10px] font-bold tracking-wider uppercase">Cardio Specialist</span>
+              <h3 class="font-display font-bold text-slate-900 text-base leading-tight">Dr. Adrian Sterling, MD</h3>
+              <p class="text-slate-400 text-xs">Chief of Cardiology</p>
+              <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-[10px] text-slate-500 font-medium">
+                <span class="flex items-center gap-1 text-emerald-600"><i data-lucide="award" class="w-3.5 h-3.5"></i> 15+ Yrs Exp</span>
+                <span>HARVARD MED ALUM</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Doctor 2: Dr. Elena Rostova -->
+          <div class="doctor-card bg-slate-50 rounded-2xl shadow-sm border border-slate-100 overflow-hidden group">
+            <div class="relative overflow-hidden h-[300px]">
+              <img src="https://images.unsplash.com/photo-1594824813573-246434de83fb?auto=format&fit=crop&q=80&w=400" alt="Dr. Elena Rostova - Pediatrician" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" referrerPolicy="no-referrer" />
+              <div class="doctor-overlay flex items-center justify-center gap-3">
+                <a href="#" class="w-9 h-9 bg-white hover:bg-sky-50 rounded-full flex items-center justify-center text-sky-600 shadow-md transition" aria-label="LinkedIn Profile"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+                <a href="#" class="w-9 h-9 bg-white hover:bg-sky-50 rounded-full flex items-center justify-center text-sky-600 shadow-md transition" aria-label="Dr Rostova's Email"><i data-lucide="mail" class="w-4 h-4"></i></a>
+              </div>
+            </div>
+            <div class="p-5 space-y-1 bg-white relative z-10">
+              <span class="text-rose-500 text-[10px] font-bold tracking-wider uppercase">Pediatric Health</span>
+              <h3 class="font-display font-bold text-slate-900 text-base leading-tight">Dr. Elena Rostova, MD</h3>
+              <p class="text-slate-400 text-xs">Head of General Pediatrics</p>
+              <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-[10px] text-slate-500 font-medium">
+                <span class="flex items-center gap-1 text-emerald-600"><i data-lucide="award" class="w-3.5 h-3.5"></i> 12+ Yrs Exp</span>
+                <span>OXFORD CLINIC FELLOW</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Doctor 3: Dr. Marcus Vance -->
+          <div class="doctor-card bg-slate-50 rounded-2xl shadow-sm border border-slate-100 overflow-hidden group">
+            <div class="relative overflow-hidden h-[300px]">
+              <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=400" alt="Dr. Marcus Vance - Neurosurgeon" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" referrerPolicy="no-referrer" />
+              <div class="doctor-overlay flex items-center justify-center gap-3">
+                <a href="#" class="w-9 h-9 bg-white hover:bg-sky-50 rounded-full flex items-center justify-center text-sky-600 shadow-md transition" aria-label="LinkedIn profile link"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+                <a href="#" class="w-9 h-9 bg-white hover:bg-sky-50 rounded-full flex items-center justify-center text-sky-600 shadow-md transition" aria-label="Professional portal page"><i data-lucide="globe" class="w-4 h-4"></i></a>
+              </div>
+            </div>
+            <div class="p-5 space-y-1 bg-white relative z-10">
+              <span class="text-violet-600 text-[10px] font-bold tracking-wider uppercase">Neurology Specialist</span>
+              <h3 class="font-display font-bold text-slate-900 text-base leading-tight">Dr. Marcus Vance, MD</h3>
+              <p class="text-slate-400 text-xs">Chief Neurological Surgeon</p>
+              <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-[10px] text-slate-500 font-medium">
+                <span class="flex items-center gap-1 text-emerald-600"><i data-lucide="award" class="w-3.5 h-3.5"></i> 18+ Yrs Exp</span>
+                <span>JOHNS HOPKINS SURGERY</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Doctor 4: Dr. Sarah Jenkins -->
+          <div class="doctor-card bg-slate-50 rounded-2xl shadow-sm border border-slate-100 overflow-hidden group">
+            <div class="relative overflow-hidden h-[300px]">
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400" alt="Dr. Sarah Jenkins - GP Specialist" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" referrerPolicy="no-referrer" />
+              <div class="doctor-overlay flex items-center justify-center gap-3">
+                <a href="#" class="w-9 h-9 bg-white hover:bg-sky-50 rounded-full flex items-center justify-center text-sky-600 shadow-md transition" aria-label="LinkedIn profile link"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+                <a href="#" class="w-9 h-9 bg-white hover:bg-sky-50 rounded-full flex items-center justify-center text-sky-600 shadow-md transition" aria-label="Dr Jenkins Email"><i data-lucide="mail" class="w-4 h-4"></i></a>
+              </div>
+            </div>
+            <div class="p-5 space-y-1 bg-white relative z-10">
+              <span class="text-emerald-600 text-[10px] font-bold tracking-wider uppercase">Preventive Health</span>
+              <h3 class="font-display font-bold text-slate-900 text-base leading-tight">Dr. Sarah Jenkins, MD</h3>
+              <p class="text-slate-400 text-xs">Family GP Care Expert</p>
+              <div class="pt-3 border-t border-slate-100 flex justify-between items-center text-[10px] text-slate-500 font-medium">
+                <span class="flex items-center gap-1 text-emerald-600"><i data-lucide="award" class="w-3.5 h-3.5"></i> 10+ Yrs Exp</span>
+                <span>STANFORD MED SCHOLAR</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- --- 8. STATISTICS SECTION --- -->
+    <section id="stats-section" class="py-16 bg-gradient-to-r from-sky-800 to-slate-900 text-white relative overflow-hidden">
+      <!-- Decorative vector lines -->
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      
+      <div class="max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          <div class="text-center space-y-2">
+            <h3 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-sky-300 stat-number" data-target="99999+">0</h3>
+            <p class="text-xs sm:text-sm text-slate-300 font-medium tracking-wide">Patients Served</p>
+          </div>
+
+          <div class="text-center space-y-2">
+            <h3 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-sky-300 stat-number" data-target="25+">0</h3>
+            <p class="text-xs sm:text-sm text-slate-300 font-medium tracking-wide">Years Clinical Legacy</p>
+          </div>
+
+          <div class="text-center space-y-2">
+            <h3 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-sky-300 stat-number" data-target="50+">0</h3>
+            <p class="text-xs sm:text-sm text-slate-300 font-medium tracking-wide">Board-Certified Experts</p>
+          </div>
+
+          <div class="text-center space-y-2">
+            <h3 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-sky-300 stat-number" data-target="4.9★">0</h3>
+            <p class="text-xs sm:text-sm text-slate-300 font-medium tracking-wide">Overall Satisfaction Rating</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- --- 9. TESTIMONIALS SLIDER --- -->
+    <section id="testimonials" class="py-24 bg-slate-50/50 fade-in-section">
+      <div class="max-w-4xl mx-auto px-6">
+        
+        <!-- Header Text -->
+        <div class="text-center space-y-4 mb-16">
+          <div class="inline-block bg-sky-50 text-sky-700 text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-md">
+            Verified Customer Reviews
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+            What Our Valued Patients Are Expressing
+          </h2>
+        </div>
+
+        <!-- Slider Wrapper -->
+        <div id="testimonial-wrapper" class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-slate-100 relative overflow-hidden">
+          
+          <div class="absolute -top-6 -left-6 text-slate-100 opacity-50 select-none">
+            <i data-lucide="quote" class="w-32 h-32 stroke-[1]"></i>
+          </div>
+
+          <!-- Slide 1 -->
+          <div class="testimonial-slide active space-y-6 relative z-10">
+            <!-- Stars -->
+            <div class="flex text-amber-500 gap-1 justify-center sm:justify-start">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <!-- Testimonial body -->
+            <blockquote class="text-lg sm:text-xl font-medium text-slate-700 leading-relaxed text-center sm:text-left">
+              "The level of clinical specialty support I received at this clinic was unparalleled. The doctors took their time to outline physical diagnosis with supreme compassion. Booking was completely fast."
+            </blockquote>
+            <!-- Profile Info -->
+            <div class="flex flex-col sm:flex-row items-center gap-4 pt-4 border-t border-slate-100">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200" alt="Sarah Jenkins review photo" class="w-12 h-12 rounded-full object-cover shadow-inner" referrerPolicy="no-referrer" />
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-slate-900 text-sm">Sarah Jenkins</h4>
+                <p class="text-xs text-slate-400">Verified Patient | Cardio Recovery</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="testimonial-slide space-y-6 relative z-10">
+            <div class="flex text-amber-500 gap-1 justify-center sm:justify-start">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <blockquote class="text-lg sm:text-xl font-medium text-slate-700 leading-relaxed text-center sm:text-left">
+              "I scheduled a preemptive diagnostics diagnostic screening panel. The clinical laboratory machinery is state-of-the-art and the operators made me feel perfectly secure and prioritized."
+            </blockquote>
+            <div class="flex flex-col sm:flex-row items-center gap-4 pt-4 border-t border-slate-100">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200" alt="Michael Chang review portrait" class="w-12 h-12 rounded-full object-cover shadow-inner" referrerPolicy="no-referrer" />
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-slate-900 text-sm">Michael Chang</h4>
+                <p class="text-xs text-slate-400">Preventive Medicine Client</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="testimonial-slide space-y-6 relative z-10">
+            <div class="flex text-amber-500 gap-1 justify-center sm:justify-start">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <blockquote class="text-lg sm:text-xl font-medium text-slate-700 leading-relaxed text-center sm:text-left">
+              "Absolutely exceptional medical checkup care. Dr. Sterling answered all cardiology concerns with extreme poise, crafting a realistic healthy recovery framework for my heart."
+            </blockquote>
+            <div class="flex flex-col sm:flex-row items-center gap-4 pt-4 border-t border-slate-100">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200" alt="Elena reviews clinic" class="w-12 h-12 rounded-full object-cover shadow-inner" referrerPolicy="no-referrer" />
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-slate-900 text-sm">Elena Rostova</h4>
+                <p class="text-xs text-slate-400">Cardiac Rehabilitation Patient</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="testimonial-slide space-y-6 relative z-10">
+            <div class="flex text-amber-500 gap-1 justify-center sm:justify-start">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <blockquote class="text-lg sm:text-xl font-medium text-slate-700 leading-relaxed text-center sm:text-left">
+              "Finding a pediatrician who builds playful clinical relationships with kids is highly rare. My children look forward to meetings and checkups here! Excellent care."
+            </blockquote>
+            <div class="flex flex-col sm:flex-row items-center gap-4 pt-4 border-t border-slate-100">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200" alt="David Brooks review" class="w-12 h-12 rounded-full object-cover shadow-inner" referrerPolicy="no-referrer" />
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-slate-900 text-sm">Dr. David Brooks</h4>
+                <p class="text-xs text-slate-400">Fulfilling Parent | Family Medicine Care</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="testimonial-slide space-y-6 relative z-10">
+            <div class="flex text-amber-500 gap-1 justify-center sm:justify-start">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <blockquote class="text-lg sm:text-xl font-medium text-slate-700 leading-relaxed text-center sm:text-left">
+              "Ultra-clean clinical, perfectly modern environment and highly fast management logic. Special consultation times allowed me to clear all physical anxiety indices immediately."
+            </blockquote>
+            <div class="flex flex-col sm:flex-row items-center gap-4 pt-4 border-t border-slate-100">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200" alt="Amira review" class="w-12 h-12 rounded-full object-cover shadow-inner" referrerPolicy="no-referrer" />
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-slate-900 text-sm">Amira Al-Farsi</h4>
+                <p class="text-xs text-slate-400">Premium Diagnostics Advisory Client</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 6 -->
+          <div class="testimonial-slide space-y-6 relative z-10">
+            <div class="flex text-amber-500 gap-1 justify-center sm:justify-start">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <blockquote class="text-lg sm:text-xl font-medium text-slate-700 leading-relaxed text-center sm:text-left">
+              "The speed and convenience parameters of online appointment schedule booking are absolute class. The waiting area layouts feel completely peaceful and clinical."
+            </blockquote>
+            <div class="flex flex-col sm:flex-row items-center gap-4 pt-4 border-t border-slate-100">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200" alt="Liam Robinson patient testimonial" class="w-12 h-12 rounded-full object-cover shadow-inner" referrerPolicy="no-referrer" />
+              <div class="text-center sm:text-left">
+                <h4 class="font-bold text-slate-900 text-sm">Liam Robinson</h4>
+                <p class="text-xs text-slate-400">Executive Outpatient Care</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slider Controls -->
+          <div class="flex items-center justify-between mt-8 pt-6 border-t border-slate-100 relative z-20">
+            <!-- Navigation slide indicator bullets -->
+            <div class="flex gap-2">
+              <button class="slider-bullet w-6 h-2 bg-sky-600 rounded-full transition-all duration-300 cursor-pointer" aria-label="Go to Slide 1"></button>
+              <button class="slider-bullet w-2 h-2 bg-slate-300 rounded-full transition-all duration-300 cursor-pointer" aria-label="Go to Slide 2"></button>
+              <button class="slider-bullet w-2 h-2 bg-slate-300 rounded-full transition-all duration-300 cursor-pointer" aria-label="Go to Slide 3"></button>
+              <button class="slider-bullet w-2 h-2 bg-slate-300 rounded-full transition-all duration-300 cursor-pointer" aria-label="Go to Slide 4"></button>
+              <button class="slider-bullet w-2 h-2 bg-slate-300 rounded-full transition-all duration-300 cursor-pointer" aria-label="Go to Slide 5"></button>
+              <button class="slider-bullet w-2 h-2 bg-slate-300 rounded-full transition-all duration-300 cursor-pointer" aria-label="Go to Slide 6"></button>
+            </div>
+            <!-- Arrows -->
+            <div class="flex gap-3">
+              <button id="slider-prev" class="w-10 h-10 border border-slate-200 hover:bg-slate-50 text-slate-600 rounded-full flex items-center justify-center transition cursor-pointer" aria-label="View previous patient feedback">
+                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+              </button>
+              <button id="slider-next" class="w-10 h-10 border border-slate-200 hover:bg-slate-50 text-slate-600 rounded-full flex items-center justify-center transition cursor-pointer" aria-label="View next patient feedback">
+                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- --- 10. APPOINTMENT BOOKING SECTION --- -->
+    <section id="appointment" class="py-24 bg-gradient-to-tr from-slate-50 via-sky-50/20 to-teal-50/10 fade-in-section">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-12 gap-16 items-center">
+          
+          <!-- Text panel explaining diagnostics priority -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="inline-block bg-sky-50 text-sky-700 text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-md">
+              Priority Clinical Booking
+            </div>
+            <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+              Schedule Your Priority Consultation in Minutes
+            </h2>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              Complete our secure electronic request register to reserve a specialist medical evaluation slot. Experience minor check-in wait, priority diagnostics workflows, and custom recovery roadmaps.
+            </p>
+            
+            <div class="space-y-4 pt-2">
+              <div class="flex items-center gap-3.5">
+                <div class="w-9 h-9 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center shrink-0">
+                  <i data-lucide="shield-check" class="w-5 h-5"></i>
+                </div>
+                <p class="text-xs text-slate-700 font-semibold">HIPAA-Compliant Encrypted Medical Registration</p>
+              </div>
+              <div class="flex items-center gap-3.5">
+                <div class="w-9 h-9 bg-sky-50 text-sky-600 rounded-full flex items-center justify-center shrink-0">
+                  <i data-lucide="bell" class="w-5 h-5"></i>
+                </div>
+                <p class="text-xs text-slate-700 font-semibold">Instant SMS & Email Scheduling Verified Alerts</p>
+              </div>
+              <div class="flex items-center gap-3.5">
+                <div class="w-9 h-9 bg-teal-50 text-teal-600 rounded-full flex items-center justify-center shrink-0">
+                  <i data-lucide="rotate-ccw" class="w-5 h-5"></i>
+                </div>
+                <p class="text-xs text-slate-700 font-semibold">24-Hour Free Scheduling Cancellation Protocol</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Form Module -->
+          <div class="lg:col-span-7">
+            <div class="bg-white rounded-3xl p-8 sm:p-10 shadow-2xl border border-slate-100">
+              
+              <h3 class="font-display font-bold text-slate-900 text-2xl tracking-tight mb-8">Clinical Intake Application</h3>
+              
+              <form id="clinic-booking-form" class="space-y-6">
+                
+                <div class="grid sm:grid-cols-2 gap-6">
+                  <!-- Name -->
+                  <div class="space-y-2">
+                    <label for="patient-name" class="block text-xs font-bold text-slate-600 uppercase tracking-wider">Full Name *</label>
+                    <div class="relative">
+                      <span class="absolute left-4 top-3.5 text-slate-400"><i data-lucide="user" class="w-4 h-4"></i></span>
+                      <input id="patient-name" type="text" required placeholder="eg. Sarah Jenkins" class="w-full pl-11 pr-4 py-3 text-sm rounded-xl form-input-premium border-slate-200" />
+                    </div>
+                  </div>
+
+                  <!-- Phone Number -->
+                  <div class="space-y-2">
+                    <label for="patient-phone" class="block text-xs font-bold text-slate-600 uppercase tracking-wider">Phone Number *</label>
+                    <div class="relative">
+                      <span class="absolute left-4 top-3.5 text-slate-400"><i data-lucide="phone" class="w-4 h-4"></i></span>
+                      <input id="patient-phone" type="tel" required placeholder="eg. 00000000000" class="w-full pl-11 pr-4 py-3 text-sm rounded-xl form-input-premium border-slate-200" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-6">
+                  <!-- Email -->
+                  <div class="space-y-2">
+                    <label for="patient-email" class="block text-xs font-bold text-slate-600 uppercase tracking-wider">Email Address *</label>
+                    <div class="relative">
+                      <span class="absolute left-4 top-3.5 text-slate-400"><i data-lucide="mail" class="w-4 h-4"></i></span>
+                      <input id="patient-email" type="email" required placeholder="info@yourbrand.com" class="w-full pl-11 pr-4 py-3 text-sm rounded-xl form-input-premium border-slate-200" />
+                    </div>
+                  </div>
+
+                  <!-- Date -->
+                  <div class="space-y-2">
+                    <label for="booking-date" class="block text-xs font-bold text-slate-600 uppercase tracking-wider">Consultation Date *</label>
+                    <div class="relative">
+                      <span class="absolute left-4 top-3.5 text-slate-400"><i data-lucide="calendar" class="w-4 h-4"></i></span>
+                      <input id="booking-date" type="date" required class="w-full pl-11 pr-4 py-3 text-sm rounded-xl form-input-premium border-slate-200" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-6">
+                  <!-- Department Selection -->
+                  <div class="space-y-2">
+                    <label for="booking-department" class="block text-xs font-bold text-slate-600 uppercase tracking-wider">Select Department</label>
+                    <div class="relative">
+                      <span class="absolute left-4 top-3.5 text-slate-400"><i data-lucide="layers" class="w-4 h-4"></i></span>
+                      <select id="booking-department" class="w-full pl-11 pr-4 py-3 text-sm rounded-xl form-input-premium border-slate-200 bg-white">
+                        <option value="general">General Consultation</option>
+                        <option value="cardio">Cardiology Specialist</option>
+                        <option value="pediatric">Pediatric Care</option>
+                        <option value="neurology">Neurology Division</option>
+                        <option value="preventive">Preventive Diagnostics</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Doctor Selection -->
+                  <div class="space-y-2">
+                    <label for="booking-doctor" class="block text-xs font-bold text-slate-600 uppercase tracking-wider">Select Doctor</label>
+                    <div class="relative">
+                      <span class="absolute left-4 top-3.5 text-slate-400"><i data-lucide="stethoscope" class="w-4 h-4"></i></span>
+                      <select id="booking-doctor" class="w-full pl-11 pr-4 py-3 text-sm rounded-xl form-input-premium border-slate-200 bg-white">
+                        <option value="any">Any Available Expert (Recommended)</option>
+                        <option value="sterling">Dr. Adrian Sterling, MD</option>
+                        <option value="rostova">Dr. Elena Rostova, MD</option>
+                        <option value="vance">Dr. Marcus Vance, MD</option>
+                        <option value="jenkins">Dr. Sarah Jenkins, MD</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Custom Message -->
+                <div class="space-y-2">
+                  <label for="booking-message" class="block text-xs font-bold text-slate-600 uppercase tracking-wider">Medical Notes or Message (Optional)</label>
+                  <textarea id="booking-message" rows="3" placeholder="Please outline any relevant chronic queries, current physical symptoms, or recovery history..." class="w-full p-4 text-sm rounded-xl form-input-premium border-slate-200"></textarea>
+                </div>
+
+                <!-- Consent -->
+                <div class="flex items-start gap-3">
+                  <input id="booking-consent" type="checkbox" required class="mt-1 h-4 w-4 text-sky-600 border-slate-200 rounded focus:ring-sky-500" />
+                  <label for="booking-consent" class="text-xs text-slate-400 leading-normal">
+                    I authorize Your Brand Medical Group to record my submitted information to configure clinics appointments. Data handling follows strict medical privacy frameworks.
+                  </label>
+                </div>
+
+                <!-- Submit Button -->
+                <button id="booking-submit-btn" type="submit" class="btn-premium w-full bg-sky-600 hover:bg-sky-700 text-white font-bold text-center py-4 rounded-xl shadow-lg hover:shadow-sky-150 transition tracking-wider uppercase text-xs cursor-pointer">
+                  Submit Clinical Registration
+                </button>
+
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SUCCESS BOOKING CONFIRMATION MODAL OVERLAY -->
+    <div id="success-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-900/60 p-6" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="bg-white rounded-3xl max-w-md w-full overflow-hidden shadow-2xl border border-slate-100 flex flex-col transform animate-[slideFadeIn_0.4s_ease-out]">
+        <!-- Top decorative banner -->
+        <div class="bg-gradient-to-r from-emerald-500 to-teal-600 text-white p-6 text-center space-y-2">
+          <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2 text-white">
+            <i data-lucide="check-circle" class="w-7 h-7"></i>
+          </div>
+          <h3 id="modal-title" class="font-display font-extrabold text-xl">Consultation Confirmed</h3>
+          <p class="text-xs text-white/90">Your medical intake was registered successfully!</p>
+        </div>
+        
+        <!-- Booking Receipt Body -->
+        <div class="p-6 space-y-4">
+          <p class="text-xs text-slate-500 text-center">
+            Your appointment ticket has been verified. Please save or screenshot clinical ticket information below for your intake nurse check-in:
+          </p>
+          
+          <div class="bg-slate-50 rounded-2xl p-5 border border-slate-150/60 font-sans space-y-3.5">
+            <!-- Code -->
+            <div class="flex justify-between items-center pb-2.5 border-b border-dashed border-slate-200">
+              <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Ticket Barcode</span>
+              <span id="receipt-code" class="font-mono text-xs font-extrabold text-sky-700">HC-410523</span>
+            </div>
+            <!-- Name -->
+            <div class="flex justify-between items-center text-xs">
+              <span class="text-slate-400">Patient Name:</span>
+              <span id="receipt-name" class="font-bold text-slate-800">Sarah Jenkins</span>
+            </div>
+            <!-- Phone -->
+            <div class="flex justify-between items-center text-xs">
+              <span class="text-slate-400">Phone Code:</span>
+              <span id="receipt-phone" class="font-bold text-slate-800">00000000000</span>
+            </div>
+            <!-- Clinic date -->
+            <div class="flex justify-between items-center text-xs">
+              <span class="text-slate-400">Scheduled Date:</span>
+              <span id="receipt-date" class="font-bold text-slate-800">Monday, June 29</span>
+            </div>
+            <!-- Department -->
+            <div class="flex justify-between items-center text-xs">
+              <span class="text-slate-400">Clinic Dept:</span>
+              <span id="receipt-dept" class="font-bold text-slate-800">Cardiology Specialist</span>
+            </div>
+            <!-- Dr -->
+            <div class="flex justify-between items-center text-xs">
+              <span class="text-slate-400">Assigned MD:</span>
+              <span id="receipt-doctor" class="font-bold text-slate-800">Dr. Adrian Sterling, MD</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2.5 bg-emerald-50 text-emerald-800 border border-emerald-100 p-3 rounded-xl text-xs">
+            <i data-lucide="info" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+            <span>Our scheduling representative will call you shortly to confirm the precise hour checkup details. See you soon!</span>
+          </div>
+        </div>
+
+        <!-- Footer actions -->
+        <div class="p-6 bg-slate-50 border-t border-slate-100 flex gap-3">
+          <button id="close-success-modal" class="w-full bg-slate-800 hover:bg-slate-900 text-white font-bold text-center py-3 rounded-xl text-xs tracking-wider uppercase transition cursor-pointer">
+            Close Receipt Page
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- --- 11. FAQ ACCORDION SECTION --- -->
+    <section class="py-24 bg-white fade-in-section">
+      <div class="max-w-4xl mx-auto px-6">
+        
+        <!-- Header Text -->
+        <div class="text-center space-y-4 max-w-2xl mx-auto mb-16">
+          <div class="inline-block bg-sky-50 text-sky-700 text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-md">
+            Your Medical Questions Explained
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight">
+            Clinic Inquiries FAQ & General Disclosures
+          </h2>
+          <p class="text-slate-500 text-sm leading-relaxed">
+            Read common clinical instructions regarding medical checkups, financial insurances, and consult sequences.
+          </p>
+        </div>
+
+        <!-- FAQ Stack Accordions -->
+        <div class="space-y-4 font-sans">
+          
+          <!-- FAQ 1 -->
+          <div class="border border-slate-100 rounded-2xl bg-slate-50/40 overflow-hidden transition hover:border-slate-200">
+            <button class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 text-base focus:outline-none cursor-pointer" aria-expanded="false" aria-controls="faq1-content">
+              <span>How do I cancel or reschedule my clinical booking slot?</span>
+              <i data-lucide="chevron-down" class="icon-chevron w-5 h-5 text-slate-500 transition-transform duration-300"></i>
+            </button>
+            <div id="faq1-content" class="faq-content">
+              <div class="px-6 pb-6 text-xs text-slate-500 leading-relaxed border-t border-slate-100 pt-3">
+                You can easily reschedule or cancel any priority booking by utilizing our floating WhatsApp portal messaging service, or calling our clinic representative line directly at least 24 hours prior to scheduled hours. No fees or penalties apply.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="border border-slate-100 rounded-2xl bg-slate-50/40 overflow-hidden transition hover:border-slate-200">
+            <button class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 text-base focus:outline-none cursor-pointer" aria-expanded="false" aria-controls="faq2-content">
+              <span>Do you accept comprehensive medical insurance packages?</span>
+              <i data-lucide="chevron-down" class="icon-chevron w-5 h-5 text-slate-500 transition-transform duration-300"></i>
+            </button>
+            <div id="faq2-content" class="faq-content">
+              <div class="px-6 pb-6 text-xs text-slate-500 leading-relaxed border-t border-slate-100 pt-3">
+                Yes! We maintain solid direct-billing integrations with all main international and private healthcare insurance groups. Please input your insurance policy details inside clinical check-in folders or contact our staff to analyze coverage baselines beforehand.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="border border-slate-100 rounded-2xl bg-slate-50/40 overflow-hidden transition hover:border-slate-200">
+            <button class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 text-base focus:outline-none cursor-pointer" aria-expanded="false" aria-controls="faq3-content">
+              <span>What parameters should I prepare for my first clinical consultation?</span>
+              <i data-lucide="chevron-down" class="icon-chevron w-5 h-5 text-slate-500 transition-transform duration-300"></i>
+            </button>
+            <div id="faq3-content" class="faq-content">
+              <div class="px-6 pb-6 text-xs text-slate-500 leading-relaxed border-t border-slate-150 pt-3">
+                For complete clinical evaluation accuracy, we advise bringing valid government identification files, recent laboratory results, a list of current pharmaceutical prescriptions, and your insurance profile cards for safe folder intake.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="border border-slate-100 rounded-2xl bg-slate-50/40 overflow-hidden transition hover:border-slate-200">
+            <button class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 text-base focus:outline-none cursor-pointer" aria-expanded="false" aria-controls="faq4-content">
+              <span>What are your routine general consultation and checkup hours?</span>
+              <i data-lucide="chevron-down" class="icon-chevron w-5 h-5 text-slate-500 transition-transform duration-300"></i>
+            </button>
+            <div id="faq4-content" class="faq-content">
+              <div class="px-6 pb-6 text-xs text-slate-500 leading-relaxed border-t border-slate-100 pt-3">
+                Our general clinical consult suites operate from Monday to Friday: 08:00 AM – 08:00 PM and Saturday: 09:00 AM – 05:00 PM. Our board-certified diagnostic laboratories are active during standard slots. Emergency trauma services are active 24/7.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="border border-slate-100 rounded-2xl bg-slate-50/40 overflow-hidden transition hover:border-slate-200">
+            <button class="faq-trigger w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 text-base focus:outline-none cursor-pointer" aria-expanded="false" aria-controls="faq5-content">
+              <span>Are clinical medical checkup logs and lab reports encrypted?</span>
+              <i data-lucide="chevron-down" class="icon-chevron w-5 h-5 text-slate-500 transition-transform duration-300"></i>
+            </button>
+            <div id="faq5-content" class="faq-content">
+              <div class="px-6 pb-6 text-xs text-slate-500 leading-relaxed border-t border-slate-100 pt-3">
+                Absolutely. Patient data safety is a key directive. We implement HIPAA-compliant medical databases to encrypt all laboratory, surgical, and symptom tracking histories. Only authorized medical experts can access your records.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- --- 12. CONTACT SECTION --- -->
+    <section id="contact" class="py-24 bg-slate-50/60 fade-in-section">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-12 gap-12">
+          
+          <!-- Info Details Block -->
+          <div class="lg:col-span-5 space-y-8 flex flex-col justify-between">
+            
+            <div class="space-y-5">
+              <div class="inline-block bg-sky-50 text-sky-700 text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-md">
+                Clinic Location & Directions
+              </div>
+              <h2 class="font-display font-black text-3xl text-slate-900 tracking-tight leading-tight">
+                Our Specialized Medical Hub is Simply Accessible
+              </h2>
+              <p class="text-slate-500 text-sm leading-relaxed">
+                Connect with our premium health advisors or explore immediate route directions to schedule priority lab checkups.
+              </p>
+            </div>
+
+            <!-- Parameters Grid standard -->
+            <div class="space-y-6 my-6">
+              
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-white border border-slate-100 rounded-xl flex items-center justify-center text-sky-600 shrink-0 shadow-sm">
+                  <i data-lucide="map-pin" class="w-5 h-5"></i>
+                </div>
+                <div class="text-sm">
+                  <h4 class="font-bold text-slate-800">Physical Address</h4>
+                  <p class="text-slate-500 text-xs mt-1 leading-normal">Premium Care Medical Suites, Level 5, Current Address</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-white border border-slate-100 rounded-xl flex items-center justify-center text-sky-600 shrink-0 shadow-sm">
+                  <i data-lucide="phone-call" class="w-5 h-5"></i>
+                </div>
+                <div class="text-sm">
+                  <h4 class="font-bold text-slate-800">Clinic Advisor Line</h4>
+                  <p class="text-slate-500 text-xs mt-1">Primary phone: <a href="tel:00000000000" class="hover:text-sky-600 font-bold">00000000000</a></p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 bg-white border border-slate-100 rounded-xl flex items-center justify-center text-sky-600 shrink-0 shadow-sm">
+                  <i data-lucide="mail-check" class="w-5 h-5"></i>
+                </div>
+                <div class="text-sm">
+                  <h4 class="font-bold text-slate-800">Secure Consultation Email</h4>
+                  <p class="text-slate-500 text-xs mt-1">General Inbox: <a href="mailto:info@yourbrand.com" class="hover:text-sky-600 font-semibold text-sky-700">info@yourbrand.com</a></p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Operating Hours module -->
+            <div class="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm space-y-3 font-sans">
+              <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wider flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-sky-600"></i> Clinical Operating Hours</h4>
+              <div class="space-y-1.5 text-xs">
+                <div class="flex justify-between"><span class="text-slate-400">Monday - Friday:</span> <span class="font-bold text-slate-700">08:00 AM – 08:00 PM</span></div>
+                <div class="flex justify-between"><span class="text-slate-400">Saturday:</span> <span class="font-bold text-slate-700">09:00 AM – 05:00 PM</span></div>
+                <div class="flex justify-between"><span class="text-slate-400">Sunday / Holidays:</span> <span class="text-rose-500 font-semibold">Emergency Duty Only</span></div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Column 2: Elegant Interactive Map Area -->
+          <div class="lg:col-span-7 h-[420px] lg:h-auto min-h-[400px] relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-200">
+            <!-- Simulated interactive UI map background with real styled elements -->
+            <div class="absolute inset-0 bg-[#e5e9f0]">
+              <!-- Custom styled grid graphics representing dynamic map segments -->
+              <svg class="absolute inset-0 w-full h-full opacity-65" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#d8dee9" stroke-width="1.5"/>
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+              </svg>
+              <!-- Roads -->
+              <div class="absolute w-full h-8 bg-white/70 shadow-sm top-[40%] origin-center rotate-6" aria-hidden="true"></div>
+              <div class="absolute w-8 h-full bg-white/70 shadow-sm left-[35%] origin-center -rotate-12" aria-hidden="true"></div>
+              <!-- Green areas -->
+              <div class="absolute w-56 h-36 bg-emerald-100/40 rounded-full blur-xl top-5 right-24" aria-hidden="true"></div>
+              <!-- River -->
+              <div class="absolute w-full h-12 bg-sky-100 shadow-inner bottom-10" aria-hidden="true"></div>
+              
+              <!-- Location pin element centered style -->
+              <div class="absolute top-[42%] left-[34%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-10">
+                <div class="relative flex items-center justify-center">
+                  <span class="absolute w-12 h-12 bg-sky-600/30 rounded-full animate-ping"></span>
+                  <div class="w-10 h-10 bg-sky-600 hover:bg-sky-700 text-white rounded-full flex items-center justify-center shadow-lg transition transform cursor-pointer hover:scale-110">
+                    <i data-lucide="hospital" class="w-5 h-5"></i>
+                  </div>
+                </div>
+                <div class="mt-2 bg-slate-900 text-white px-3.5 py-1.5 rounded-xl shadow-xl text-center flex flex-col items-center">
+                  <h4 class="font-bold text-[10px] tracking-wide whitespace-nowrap">Your Brand Clinic Hub</h4>
+                  <p class="text-[8px] text-slate-300">Level 5 Suite, Medical Towers</p>
+                  <a href="#appointment" class="text-[8px] text-sky-300 hover:text-sky-400 underline font-semibold mt-0.5">Navigate & Consult</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- --- 13. NEWSLETTER SECTION --- -->
+    <section class="py-20 bg-gradient-to-tr from-sky-900 to-slate-900 text-white relative overflow-hidden">
+      <!-- Background glows -->
+      <div class="absolute -top-16 -right-16 w-80 h-80 rounded-full bg-sky-700/20 blur-3xl" aria-hidden="true"></div>
+      <div class="absolute -bottom-16 -left-16 w-80 h-80 rounded-full bg-teal-800/20 blur-3xl" aria-hidden="true"></div>
+
+      <div class="max-w-4xl mx-auto px-6 relative z-10 text-center space-y-8">
+        <div class="w-12 h-12 bg-sky-800 text-sky-400 rounded-2xl flex items-center justify-center mx-auto shadow-lg shadow-sky-950">
+          <i data-lucide="mail-check" class="w-6 h-6"></i>
+        </div>
+        <div class="space-y-3">
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-sky-100 tracking-tight">
+            Stay Updated With Health Tips & Clinic News
+          </h2>
+          <p class="text-slate-300 text-sm max-w-xl mx-auto leading-relaxed font-light">
+            Subscribe to our seasonal clinical brief to receive expert preventive wellness guidelines, specialists schedules, and diagnostic package notifications directly.
+          </p>
+        </div>
+
+        <form onsubmit="event.preventDefault(); alert('Subscribed! Thank you for staying updated with our clinics wellness newsletters.'); this.reset();" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+          <input type="email" required placeholder="Enter your email address" class="flex-grow bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-5 py-3.5 text-sm text-white placeholder-slate-400 outline-none focus:ring-2 focus:ring-sky-500 transition-all" />
+          <button type="submit" class="bg-sky-600 hover:bg-sky-700 text-white font-bold text-sm tracking-wider uppercase px-6 py-3.5 rounded-xl transition cursor-pointer">
+            Subscribe
+          </button>
+        </form>
+        
+        <p class="text-[10px] text-slate-400 font-light translate-y-2">Zero spam guaranteed. Unsubscribe safely anytime with one click.</p>
+      </div>
+    </section>
+
+
+    <!-- --- 14. FOOTER --- -->
+    <footer class="bg-slate-950 text-slate-400 pt-20 pb-10 border-t border-slate-900 relative">
+      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-slate-900 font-sans">
+        
+        <!-- Brand Bio -->
+        <div class="space-y-6">
+          <a href="#home" class="flex items-center gap-2.5 text-white">
+            <div class="w-9 h-9 bg-sky-600 rounded-lg flex items-center justify-center">
+              <i data-lucide="heart-pulse" class="w-5.5 h-5.5 text-white"></i>
+            </div>
+            <span class="font-display font-extrabold text-lg tracking-tight">Your Brand<span class="text-sky-500 font-normal">Care</span></span>
+          </a>
+          <p class="text-xs leading-relaxed text-slate-400">
+            A premium private clinical complex dedicated to bringing board-certified diagnostics, general health audits, and specialized care guidelines to patients across the region.
+          </p>
+          <div class="flex gap-3 pt-2">
+            <a href="#" class="w-8.5 h-8.5 bg-slate-900 hover:bg-sky-600 hover:text-white rounded-lg flex items-center justify-center transition border border-slate-800" aria-label="Follow us on Facebook"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+            <a href="#" class="w-8.5 h-8.5 bg-slate-900 hover:bg-sky-600 hover:text-white rounded-lg flex items-center justify-center transition border border-slate-800" aria-label="Follow us on Twitter"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+            <a href="#" class="w-8.5 h-8.5 bg-slate-900 hover:bg-sky-600 hover:text-white rounded-lg flex items-center justify-center transition border border-slate-800" aria-label="Follow us on Instagram"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+            <a href="#" class="w-8.5 h-8.5 bg-slate-900 hover:bg-sky-600 hover:text-white rounded-lg flex items-center justify-center transition border border-slate-800" aria-label="Read clinic research on Youtube"><i data-lucide="youtube" class="w-4 h-4"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="space-y-5">
+          <h4 class="text-white text-xs uppercase font-extrabold tracking-wider">Quick Navigation</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="#home" class="hover:text-sky-500 transition">Portal Home</a></li>
+            <li><a href="#about" class="hover:text-sky-500 transition">About Our Center</a></li>
+            <li><a href="#services" class="hover:text-sky-500 transition">Clinical Departments</a></li>
+            <li><a href="#why-choose-us" class="hover:text-sky-500 transition">Core Strengths</a></li>
+            <li><a href="#doctors" class="hover:text-sky-500 transition">Board specialists</a></li>
+            <li><a href="#testimonials" class="hover:text-sky-500 transition">Patients Stories</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="space-y-5">
+          <h4 class="text-white text-xs uppercase font-extrabold tracking-wider">Core Departments</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="#services" class="hover:text-sky-500 transition">Cardiology Specialist</a></li>
+            <li><a href="#services" class="hover:text-sky-500 transition">Family Medicine Division</a></li>
+            <li><a href="#services" class="hover:text-sky-500 transition">Preventive diagnostics</a></li>
+            <li><a href="#services" class="hover:text-sky-500 transition">Pediatric Care Wing</a></li>
+            <li><a href="#services" class="hover:text-sky-500 transition">Neurology Institute</a></li>
+            <li><a href="#services" class="hover:text-sky-500 transition">Laboratory pathology</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact details footer -->
+        <div class="space-y-5">
+          <h4 class="text-white text-xs uppercase font-extrabold tracking-wider">Clinical Inquiries</h4>
+          <ul class="space-y-3.5 text-xs">
+            <li class="flex items-start gap-3">
+              <i data-lucide="map-pin" class="w-4.5 h-4.5 text-sky-500 shrink-0 mt-0.5"></i>
+              <span class="leading-relaxed">Premium Care Medical Suites, Level 5, Current Address</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="phone" class="w-4.5 h-4.5 text-sky-500 shrink-0"></i>
+              <span class="font-bold">00000000000</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="mail" class="w-4.5 h-4.5 text-sky-500 shrink-0"></i>
+              <span class="text-sky-400">info@yourbrand.com</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer bottom info -->
+      <div class="max-w-7xl mx-auto px-6 pt-10 flex flex-col md:flex-row items-center justify-between text-[11px] text-slate-500 gap-4">
+        <div>
+          <p>© 2026 Your Brand Name. All Rights Reserved.</p>
+          <p class="mt-1 font-light">Trusted Healthcare. Exceptional Care.</p>
+        </div>
+        <div class="flex gap-4 font-light">
+          <a href="#" class="hover:text-sky-500 transition">Intake Privacy Statement</a>
+          <span>·</span>
+          <a href="#" class="hover:text-sky-500 transition">Clinical Terms of Service</a>
+          <span>·</span>
+          <a href="#" class="hover:text-sky-500 transition">Insurance Integrations Disclosure</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Master controller file -->
+    <script src="/script.js"></script>
+  </body>
+</html>

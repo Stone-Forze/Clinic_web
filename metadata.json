@@ -1,0 +1,6 @@
+{
+  "name": "Clinic Website",
+  "description": "A premium, modern and trustworthy healthcare clinic website featuring interactive appointment booking, testimonial sliders, animated statistic counters, expandable accordions, and advanced scroll-based transitions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
